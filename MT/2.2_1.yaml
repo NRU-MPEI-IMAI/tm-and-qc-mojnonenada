@@ -1,0 +1,42 @@
+  input: '001122'
+  blank: ' '
+  start state: q0
+    
+  table:
+    q0:
+      'x': R
+      0: {write: 'x', R: q1}
+      [1,2]: {L: q5}
+      ' ': {R: include}
+    q1: 
+      [0,'x']: R
+      1: {write: 'x', R: q2}
+      [2,' ']: {L: not_included}
+    q2: 
+      [1,'x']: R
+      2: {write: 'x', R: q3}
+      [0,' ']: {L: not_included}
+    q3:
+      [0,1]: {L: not_included}
+      [2]: {L: q4} 
+      [' ']: {L: analyse}
+    q4:  # repeat q1-q3
+      [0,1,2,'x']: L
+      ' ': {R: q0}
+    q5:
+      [0,1,2,'x']: L 
+      ' ': {R: q6}
+    q6:
+      [0,1,2,'x']: {write: ' ', R} 
+      ' ': {R: not_included}
+    analyse:
+      'x': L
+      [0,1,2]: {L: not_included}
+      [' ']: {R: include}      
+    not_included:
+      [0,1,2,'x']: {L: q5}
+      ' ': {write: N, R: done}  
+    include:
+      [0,1,2,'x']: {write: ' ', R}
+      ' ': {write: Y, R: done}
+    done:

@@ -1,0 +1,34 @@
+input: '||*||'
+blank: ' '
+start state: q1
+table:
+  q1:
+    ["|","*"] : R
+    ' ' : {write: '=', L: q2}
+  q2:
+    "|"  : L
+    "*" : {L: q3}
+  q3:
+    x: L  
+    "|": {write: x, R: q4}
+    ' ': {R: q9}
+  q4:
+    ["x","*"]: R
+    "|": {write: y, R: q5}
+    "=": {L: q8}
+  q5:
+    "|": R
+    "=" : {R: q6}
+  q6:
+    ' ' : {write: "|",L: q7}
+    "|": R
+  q7: 
+    ["=","|"] : L 
+    y : {R: q4}
+  q8:
+    y: {write: "|", L}
+    "*": {L: q3}
+  q9:
+    ["*","|","x"]: {write: ' ',R}
+    "=": {write: ' ',R: done}
+  done:

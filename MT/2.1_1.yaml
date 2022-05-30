@@ -1,0 +1,19 @@
+  input: '||+|||'
+  blank: ' '
+  start state: q1
+  table:
+    q1:
+      "|": R
+      '+'  : {R: q2}
+    q2:
+      "|": {write: x, L: q3}
+      x: R
+      ' ': {L: q4}
+    q3:
+      ["|", "x", '+']: L 
+      ' ': {write: "|", R: q1}
+    q4:
+      ["x", '+']: {write: ' ', L}
+      "|": L
+      ' ': {R: done}
+    done:
