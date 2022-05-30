@@ -1,197 +1,236 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
-\usepackage[margin=3cm]{geometry}
-\usepackage{paralist}
-\usepackage{amsthm, amsmath, amsfonts, amssymb}
-\usepackage{mathtools} % \mathclap
-\usepackage{bm}
-\usepackage{dsfont}
-\usepackage{hyperref}
+\usepackage{amsfonts}
 \usepackage{graphicx}
-\usepackage{multirow}
-\usepackage{comment}
-\usepackage{xcolor, colortbl}
-\usepackage{xifthen, xspace}
-\usepackage{caption, subcaption}
-\usepackage{lscape}
-\usepackage{braket}
-\usepackage{epigraph}
-\usepackage{sectsty}
+\usepackage{amsfonts}
 \usepackage{listings}
-
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=blue,
-    pdftitle={Overleaf Example},
-    pdfpagemode=FullScreen,
-    }
-
-\title{Теоретические модели вычислений \\
-ДЗ №3: Машины Тьюринга и квантовые вычисления}
-
-\date{1 мая 2022 года}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage[export]{adjustbox}
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{amsthm}
+\usepackage[14pt]{extsizes}
+\vspace{50mm}
+\setlength{\parskip}{1.2em}
+\linespread{1.2}
+\usepackage[left=25mm, top=25mm, right=25mm, bottom=25mm, nohead]{geometry}
+\newtheorem{theorem}{Утверждение}
 
 \begin{document}
+\thispagestyle{empty}
+\begin{center}
+\large \textbf{МИНОБРНАУКИ РОССИИ}\\
+\normalsize{федеральное государственное бюджетное образовательное\\
+учреждение высшего образования}\\
+\large \textbf{Национальный исследовательский университет «МЭИ»}\\
+\noindent\rule{15cm}{0.4pt}
+\end{center}
+\begin{flushright}
+\large \textbf {Институт \underline {ИВТИ}}\\
+\large \textbf {Кафедра \underline {ПМИИ}}\\
+\end{flushright}
+\begin{center}
+\large \textbf{Теоритические модели вычислений}\\
+\large{ДЗ №3: Машины Тьюринга и квантовые вычисления}\\
+\end{center}
+\hfill \break
+\begin{flushright}
+{Выполнил: студент группы А-13а-19 
+\\Тулинов А.В.\\
+Преподаватель: Ивлиев С.А.}\\
+\end{flushright}
+\hfill \break
+\hfill \break
+\hfill \break
+\begin{center}
+Москва, 2022 г.
+\end{center}
 
-\maketitle
+\newpage
+\textbf{\Large 2 Машины Тьюринга}\\\\
+\hfill \break
+\textbf{\Large 2.1 Операции с числами}\\\\
+Реализуйте машины Тьюринга, которые позволяют выполнять следующие операции: \\
+\hfill \break
+\textbf{1.} Сложение двух унарных чисел (1 балл) \\
+\hfill \break
+\normalsize \underline{Решение:}\\
+\hfill \break
+\includegraphics[scale = 1.0] {mt2.1_1}\\
+\hfill \break
+\newpage
+\textbf{Листинг:}\\
+\hfill \break
+\includegraphics[scale = 1.0] {1_yaml}\\
+\hfill \break
+Описание \textbf{.yaml} к соответствующей задаче находится в папке MT.\\\\
+\hfill \break
+\newpage
+\textbf{2.} Умножение унарных чисел (1 балл) \\
+\hfill \break
+\normalsize \underline{Решение:}\\\\
+\hfill \break
+\includegraphics[scale = 0.8] {mt2.1_2}\\
+\hfill \break
+\newpage
+\textbf{Листинг:}\\
+\hfill \break
+\includegraphics[scale = 0.9] {2_yaml}\\
+\hfill \break
+Описание \textbf{.yaml} к соответствующей задаче находится в папке MT.\\\\
 
-\section{Введение}
+\newpage
+\textbf{\Large 2.2 Операции с языками и символами}\\\\
+Реализуйте машины Тьюринга, которые позволяют выполнять следующие операции: \\
+\hfill \break
+\textbf{1. }Принадлежность  к языку L = \(\{0^n1^n2^n\}, n \geq 0\) (0.5 балла)\\
+\hfill \break
+\normalsize \underline{Решение:}\\
+\hfill \break
+\includegraphics[scale = 0.7] {mt2.2_1}\\
+\newpage
+\textbf{Листинг:}\\
+\hfill \break
+\includegraphics[scale = 0.9] {3_yaml}\\
+\hfill \break
+Описание \textbf{.yaml} к соответствующей задаче находится в папке MT.\\\\
+\textbf{2. }Проверка соблюдения правильности скобок в строке (минимум 3 вида скобок) (0.5 балла)\\
+\hfill \break
+\normalsize \underline{Решение:}\\
+\hfill \break
+\includegraphics[scale = 1.0] {mt2.2_2}\\
+\newpage
+\textbf{Листинг:}\\
+\hfill \break
+\includegraphics[scale = 1.0] {4_yaml}\\
+\hfill \break
+Описание \textbf{.yaml} к соответствующей задаче находится в папке MT.\\\\
+\newpage
+\textbf{3. }Поиск минимального по длинне слова в строке (слова состоят из символов 1 и 0 и разделены пробелом) (1 балл)\\
+\hfill \break
+\normalsize \underline{Решение:}\\
+\hfill \break
+\includegraphics[scale = 1.2] {mt2.2_3}\\
+\newpage
+\textbf{Листинг:}\\
+\hfill \break
+\includegraphics[scale = 1.0] {5_yaml}\\
+\hfill \break
+Описание \textbf{.yaml} к соответствующей задаче находится в папке MT.\\
+\newpage
 
-Для того, чтобы работа была принята, требуется соблюдать ряд условий:
-
-\begin{enumerate}
-    \item Текст решения домашней работы должен быть подготовлен в одном из следующих форматов: \href{https://www.latex-project.org/}{\LaTeX}, \href{https://en.wikipedia.org/wiki/Markdown}{Markdown}, \href{https://asciidoc-py.github.io/index.html}{AsciiDOC}
-    \item Дополнительно должен быть приложен PDF файл
-    \item Для набора рекомендуется использовать сервисы типа \href{https://www.overleaf.com}{Overleaf}
-    \item Работу можно выполнить на английском языке
-    \item Иллюстрации, должны быть описаны на декларативном языке \href{https://graphviz.org/}{Graphviz} или \href{https://mermaid-js.github.io/mermaid/#/}{Mermaid}. В сам документ можно вставить отрендеренную картинку.
-    \item За каждое задание можно получить определённое количество количество баллов, указанное рядом с заданием
-    \item Мягкий дедлайн -- 20 дней (12:00 20 мая 2022 года), после него $-30\%$ к оценке
-    \item Для зачёта надо набрать $60\%$ от максимальной оценки
-    \item Максимальное количество баллов: 10.
-    \item Работа должна быть выложена на \href{https://github.com/}{GitHub}, в репозитории, созданном к ней
-\end{enumerate}
-
-\section{Машины Тьюринга}
-
-Работу требуется выполнять в системе \url{turingmachine.io}. \\\\
-Для сдачи заданий 1-2 требуется прикрепить файлы YAML с исходным кодом проекта. Каждый файлы должен иметь наименование задание\_пункт.yml, к примеру 1\_1.yml для первой задачи первого задания. \\\\
-
-\subsection{Операции с числами}
-
-Реализуйте машины Тьюринга, которые позволяют выполнять следующие операции:
-\begin{enumerate}
-    \item Сложение двух унарных чисел (1 балла)
-    \item Умножение унарных чисел (1 балл)
-\end{enumerate}
-
-
-\subsection{Операции с языками и символами}
-
-Реализуйте машины Тьюринга, которые позволяют выполнять следующие операции:
-\begin{enumerate}
-    \item Принадлежность к языку $L = \{ 0^n1^n2^n \}, n \ge 0$ (0.5 балла)
-    \item Проверка соблюдения правильности скобок в строке (минимум 3 вида скобок) (0.5 балла)
-    \item Поиск минимального по длине слова в строке (слова состоят из символов 1 и 0 и разделены пробелом) (1 балл)
-\end{enumerate}
-
-
-\section{Квантовые вычисления}
-
-Для выполнения заданий по квантовым вычислениям требуется QDK. Его можно скачать здесь: \url{https://docs.microsoft.com/en-us/azure/quantum/install-overview-qdk}. 
-\\\\
-Но можно использовать любой пакет, типа \url{https://qiskit.org/}. 
-\\\\
-В качестве решения задачи надо предоставить схему алгоритма для частного случая при фиксированном количестве кубитов и фиксированных состояниях. 
-
-
-\subsection{Генерация суперпозиций 1 (1 балл)}
-
-Дано $N$ кубитов ($1 \le N \le 8$) в нулевом состоянии $\Ket{0\dots0}$. Также дана некоторая последовательность битов, которое задаёт ненулевое базисное состояние размера $N$. Задача получить суперпозицию нулевого состояния и заданного.
-
-$$\Ket{S} = \frac{1}{\sqrt2}(\Ket{0\dots0} +\Ket{\psi})$$
-
-То есть требуется реализовать операцию, которая принимает на вход:
-
-\begin{enumerate}
-    \item Массив кубитов $q_s$
-    \item Массив битов $bits$ описывающих некоторое состояние $\Ket{\psi}$. Это массив имеет тот же самый размер, что и $qs$. Первый элемент этого массива равен $1$.
-\end{enumerate}
-
-
-Заготовка для кода:
+\textbf{\Large 3 Квантовые вычисления}\\\\
+\hfill \break
+\textbf{\Large 3.1 Генерация суперпозиций (1 балл)}\\\\
+\hfill \break
+Дано \(N\) кубитов \((1 \leq N \leq 8)\) в нулевом состоянии \(|0...0\rangle\). Также дана некоторая последовательность битов, которая задаёт ненулевое базисное состояние размера \(N\). Задача получить суперпозицию нулевого состояния и заданного.\\\\
+\(|S\rangle\) = \(\frac{1}{\sqrt{2}}\) \((|0 ... 0\rangle + |\psi\ \rangle)\)\\\\
+То есть требуется реализовать операцию, которая принимает на вход:\\
+1. Массив кубитов \(q_s\)\\
+2. Массив битов \(bits \) описывающих некоторое состояние \(|\psi\ \rangle\). Этот массив имеет тот же самый размер, что и \(q_s\).\\ 
+Первый элемент этого массива равен \(1\).\\\\
+\textbf{Листинг:}\\
 \begin{lstlisting}
 namespace Solution {
-        open Microsoft.Quantum.Primitive;
-        open Microsoft.Quantum.Canon;
-        operation Solve (qs : Qubit[], bits : Bool[]) : ()
-        {
-            body
-            {
-
-            }
+    open Microsoft.Quantum.Primitive;
+    open Microsoft.Quantum.Canon;
+    operation Solve(qs: Qubit[], bits: Bool[]) : () 
+    {
+        body 
+        { 
+            H(qs[0]);
+            for (i in 1..Length(qs) - 1) 
+			{
+                if (bits[i]) 
+				{
+                    CNOT(qs[0], qs[i]); 
+                } 
+            }                  
         }
+    }
 }
 \end{lstlisting}
 
-
-\subsection{Различение состояний 1 (1 балл)}
-
-Дано $N$ кубитов ($1 \le N \le 8$), которые могут быть в одном из двух состояний:
-
-$$\Ket{GHZ} = \frac{1}{\sqrt2}(\Ket{0\dots0} +\Ket{1\dots1})$$
-$$\Ket{W} = \frac{1}{\sqrt N}(\Ket{10\dots00}+\Ket{01\dots00} + \dots +\Ket{00\dots01})$$
-
-Требуется выполнить необходимые преобразования, чтобы точно различить эти два состояния. Возвращать $0$, если первое состояние и 1, если второе. 
-\\\\
-Заготовка для кода:
+\textbf{\Large 3.2 Различение состояний 1 (1 балл)}\\\\
+\hfill \break
+Дано \(N\) кубитов \((1 \leq N \leq 8)\), которые могут быть в одном из двух состояний:\\\\
+\(|GHZ\rangle\) = \(\frac{1}{\sqrt{2}}\) \((|0 ... 0\rangle + |1 ... 1\rangle)\)\\\\
+\(|W\rangle\) = \(\frac{1}{\sqrt{N}}\) \((|10 ... 00\rangle + |01 ... 00\rangle + ... + |00 ... 01\rangle)\)\\\\
+Требуется выполнить необходимые преобразования, чтобы точно различить эти два состояния. Возвращать 0, если первое состояние и 1, если второе.\\\\
+\textbf{Листинг:}\\
 \begin{lstlisting}
 namespace Solution {
-        open Microsoft.Quantum.Primitive;
-        open Microsoft.Quantum.Canon;
-        operation Solve (qs : Qubit[]) : Int
-        {
-            body
-            {
-
-                return 
+    open Microsoft.Quantum.Primitive;
+    open Microsoft.Quantum.Canon;
+    operation Solve(qs: Qubit[]) : Int 
+	{
+        body 
+		{   
+            mutable one = 0;
+            for (q in qs) 
+			{
+                if (M(q) == One) 
+				{ 
+                    set one = one + 1; 
+                }
             }
+            if (one == 1) 
+			{
+                return 1;
+            } 
+			else 
+			{
+                return 0;
+            }                
         }
+    }
 }
 \end{lstlisting}
 
-
-\subsection{Различение состояний 2 (2 балла)}
-
-Дано $2$ кубита, которые могут быть в одном из двух состояний:
-
-$$\Ket{S_0} = \frac{1}{2}(\Ket{00} + \Ket{01} + \Ket{10} + \Ket{11})$$
-$$\Ket{S_1} = \frac{1}{2}(\Ket{00} - \Ket{01} + \Ket{10} - \Ket{11})$$
-$$\Ket{S_2} = \frac{1}{2}(\Ket{00} + \Ket{01} - \Ket{10} - \Ket{11})$$
-$$\Ket{S_3} = \frac{1}{2}(\Ket{00} - \Ket{01} - \Ket{10} + \Ket{11})$$
-
-
-Требуется выполнить необходимые преобразования, чтобы точно различить эти четыре состояния. Возвращать требуется индекс состояния (от $0$ до $3$). 
-\\\\
-Заготовка для кода:
+\textbf{\Large 3.3 Различение состояний 2 (2 балла)}\\\\
+\hfill \break
+Дано 2 кубита, которые могут быть в одном из двух состояний:\\\\
+\(|S_0\rangle\) = \(\frac{1}{2}\) \((|00\rangle + |01\rangle + |10\rangle + |11\rangle)\)\\\\
+\(|S_1\rangle\) = \(\frac{1}{2}\) \((|00\rangle - |01\rangle + |10\rangle - |11\rangle)\)\\\\
+\(|S_2\rangle\) = \(\frac{1}{2}\) \((|00\rangle + |01\rangle - |10\rangle - |11\rangle)\)\\\\
+\(|S_3\rangle\) = \(\frac{1}{2}\) \((|00\rangle - |01\rangle - |10\rangle + |11\rangle)\)\\\\
+Требуется выполнить необходимые преобразования, чтобы точно различить эти четыре состояния. Возвращать требуется индекс состояния (от 0 до 3).\\\\
+\textbf{Лпстинг:}\\
 \begin{lstlisting}
 namespace Solution {
-        open Microsoft.Quantum.Primitive;
-        open Microsoft.Quantum.Canon;
-        operation Solve (qs : Qubit[]) : Int
+    open Microsoft.Quantum.Canon;
+    open Microsoft.Quantum.Primitive;
+    operation Solve (qs: Qubit[]) : Int
+    {
+        body 
         {
-            body
-            {
-
-                return 
-            }
+			H(qs[0]);
+			H(qs[1]);
+			if (M(qs[0]) == Zero) 
+			{
+				if (M(qs[1]) == Zero)
+				{
+					return 0;
+				}
+				else
+				{
+					return 1;
+				}
+			}
+			else
+			{
+				if (M(qs[1]) == Zero)
+				{
+					return 2;
+				}
+				else
+				{
+					return 3;
+				}
+			}
         }
+    }
 }
 \end{lstlisting}
-
-
-\subsection{Написание оракула 1 (2 балла)}
-
-Требуется реализовать квантовый оракул на $N$ кубитах ($1 \le N \le 8$), который реализует следующую функцию: $f(\pmb{x}) = (\pmb{b}\pmb{x}) \mod 2$, где  $\pmb{b} \in \{0,1\}^N$ вектор битов и  $\pmb{x}$ вектор кубитов. Выход функции записать в кубит $\pmb{y}$. Количество кубитов $N$ ($1 \le N \le 8$). 
-\\\\
-Заготовка для кода:
-\begin{lstlisting}
-namespace Solution {
-        open Microsoft.Quantum.Primitive;
-        open Microsoft.Quantum.Canon;
-        operation Solve (x : Qubit[], y : Qubit, b : Int[]) : ()
-        {
-            body
-            {
-
-            }
-        }
-}
-\end{lstlisting}
-
 \end{document}
